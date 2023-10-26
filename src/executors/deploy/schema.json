@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "version": 2,
+  "title": "Deploy executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "stacks": {
+      "type": "string",
+      "description": "Stacks to deploy"
+    },
+    "app": {
+      "type": "string",
+      "description": "CDK application entrypoint, relative to workspace root"
+    },
+    "hotswapFallback": {
+      "description": "Attempts to perform a 'hotswap' deployment, which skips CloudFormation and updates the resources directly, and falls back to a full deployment if that is not possible. Do not use this in production environments",
+      "type": "boolean"
+    },
+    "noRollback": {
+      "description": "Do not rollback stack to stable state on failure",
+      "type": "boolean"
+    }
+  },
+  "required": []
+}

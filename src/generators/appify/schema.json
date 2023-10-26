@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "App",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Project which should get a cdk app",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Which project would you like to have a cdk-app for?",
+      "x-dropdown": "projects"
+    }
+  },
+  "required": ["project"]
+}

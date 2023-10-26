@@ -1,0 +1,19 @@
+{
+  "executors": {
+    "synthesize": {
+      "implementation": "./src/executors/synthesize/synthesize",
+      "schema": "./src/executors/synthesize/schema.json",
+      "description": "Synthesize an AWS CDK app"
+    },
+    "deploy": {
+      "implementation": "./src/executors/deploy/deploy",
+      "schema": "./src/executors/deploy/schema.json",
+      "description": "Deploy an AWS CDK app"
+    },
+    "destroy": {
+      "implementation": "./src/executors/destroy/destroy",
+      "schema": "./src/executors/destroy/schema.json",
+      "description": "Destroy an AWS CDK app"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "version": 2,
+  "title": "Synthesize executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "output": {
+      "type": "string",
+      "description": "output path for synthesized templates, relative to workspace root"
+    },
+    "stacks": {
+      "type": "string",
+      "description": "Stacks to deploy"
+    },
+    "quiet": {
+      "type": "boolean",
+      "description": "Do not output CloudFormation Template to stdout"
+    }
+  },
+  "required": ["output"]
+}

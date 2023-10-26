@@ -1,0 +1,24 @@
+{
+  "generators": {
+    "init": {
+      "factory": "./src/generators/init/init",
+      "schema": "./src/generators/init/schema.json",
+      "description": "Add AWS CDK capabilities to a workspace"
+    },
+    "bootstrap": {
+      "factory": "./src/generators/bootstrap/bootstrap",
+      "schema": "./src/generators/bootstrap/schema.json",
+      "description": "Enable AWS CDK in a remote AWS environment"
+    },
+    "appify": {
+      "factory": "./src/generators/appify/appify",
+      "schema": "./src/generators/appify/schema.json",
+      "description": "Add AWS CDK capabilities to an existing app"
+    },
+    "app": {
+      "factory": "./src/generators/app/app",
+      "schema": "./src/generators/app/schema.json",
+      "description": "Create a new app with AWS CDK capabilities"
+    }
+  }
+}

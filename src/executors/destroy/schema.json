@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "version": 2,
+  "title": "Destroy executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "stacks": {
+      "type": "string",
+      "description": "Stacks to destroy"
+    },
+    "app": {
+      "type": "string",
+      "description": "CDK application entrypoint, relative to workspace root"
+    },
+    "force": {
+      "type": "boolean",
+      "description": "Do not ask for confirmation before destroying the stacks"
+    }
+  },
+  "required": []
+}

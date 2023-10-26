@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "NxCdkBootstrap",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "accountId": {
+      "type": "number",
+      "description": "AWS account id to bootstrap",
+      "x-prompt": "Which AWS Account id would you like to bootstrap?"
+    },
+    "region": {
+      "type": "string",
+      "description": "AWS region to bootstrap",
+      "x-prompt": "Which AWS region would you like to bootstrap?"
+    }
+  },
+  "required": ["accountId", "region"]
+}
