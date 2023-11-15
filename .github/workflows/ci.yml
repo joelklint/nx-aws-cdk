@@ -30,7 +30,7 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - run: pnpm nx format:check
-      - run: pnpm nx run-many --target lint
+      - run: pnpm nx lint
       - run: pnpm nx run nx-aws-cdk:build
       - run: pnpm nx run nx-aws-cdk:test:ci
       - run: pnpm nx run e2e:e2e
