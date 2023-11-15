@@ -51,6 +51,7 @@ process.chdir(outputPath);
 try {
   const json = JSON.parse(readFileSync(`package.json`).toString());
   json.version = version;
+  delete json.scripts.prepare; // Delete prepare script since git-hooks are not relevant in dist folder
   writeFileSync(`package.json`, JSON.stringify(json, null, 2));
 } catch (e) {
   console.error(`Error reading package.json file from library build output.`);
