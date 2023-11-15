@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+pnpm nx format:check --base=origin/main --head=$(git log -n 1 --pretty=format:"%H") &&
+pnpm nx affected:lint --base=origin/main --head=$(git log -n 1 --pretty=format:"%H")
