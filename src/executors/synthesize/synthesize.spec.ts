@@ -78,7 +78,7 @@ describe('synthesize', () => {
       await synthesizeExecutor(
         {
           output: 'cdk.out/apps/test-app',
-          stacks: 'some-stack'
+          stacks: 'some-stack',
         },
         executorContext
       );
@@ -97,13 +97,49 @@ describe('synthesize', () => {
       await synthesizeExecutor(
         {
           output: 'cdk.out/apps/test-app',
-          quiet: true
+          quiet: true,
         },
         executorContext
       );
 
       expect(execSpy).toHaveBeenCalledWith<[string, child_process.ExecOptions]>(
         '/virtual/node_modules/.bin/cdk synthesize --quiet --output ../../cdk.out/apps/test-app',
+        expectedExecOptions
+      );
+    });
+  });
+
+  describe('context', () => {
+    it('should translate single value to single --context', async () => {
+      const execSpy = jest.spyOn(child_process, 'exec');
+
+      await synthesizeExecutor(
+        {
+          output: 'cdk.out/apps/test-app',
+          context: ['first=1'],
+        },
+        executorContext
+      );
+
+      expect(execSpy).toHaveBeenCalledWith<[string, child_process.ExecOptions]>(
+        '/virtual/node_modules/.bin/cdk synthesize --output ../../cdk.out/apps/test-app --context first=1',
+        expectedExecOptions
+      );
+    });
+
+    it('should translate multiple values to multiple --context', async () => {
+      const execSpy = jest.spyOn(child_process, 'exec');
+
+      await synthesizeExecutor(
+        {
+          output: 'cdk.out/apps/test-app',
+          context: ['second=2', 'random=value'],
+        },
+        executorContext
+      );
+
+      expect(execSpy).toHaveBeenCalledWith<[string, child_process.ExecOptions]>(
+        '/virtual/node_modules/.bin/cdk synthesize --output ../../cdk.out/apps/test-app --context second=2 --context random=value',
         expectedExecOptions
       );
     });

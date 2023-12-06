@@ -117,4 +117,38 @@ describe('deploy', () => {
       );
     });
   });
+
+  describe('context', () => {
+    it('should translate single value to single --context', async () => {
+      const execSpy = jest.spyOn(child_process, 'exec');
+
+      await deployExecutor(
+        {
+          context: ['first=1'],
+        },
+        executorContext
+      );
+
+      expect(execSpy).toHaveBeenCalledWith<[string, child_process.ExecOptions]>(
+        '/virtual/node_modules/.bin/cdk deploy --context first=1',
+        expectedExecOptions
+      );
+    });
+
+    it('should translate multiple values to multiple --context', async () => {
+      const execSpy = jest.spyOn(child_process, 'exec');
+
+      await deployExecutor(
+        {
+          context: ['second=2', 'random=value'],
+        },
+        executorContext
+      );
+
+      expect(execSpy).toHaveBeenCalledWith<[string, child_process.ExecOptions]>(
+        '/virtual/node_modules/.bin/cdk deploy --context second=2 --context random=value',
+        expectedExecOptions
+      );
+    });
+  });
 });

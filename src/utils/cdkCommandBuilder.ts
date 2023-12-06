@@ -32,6 +32,7 @@ interface BuildCdkProjectCommandRequest {
     noRollback?: boolean;
     force?: boolean;
     quiet?: boolean;
+    context?: string[] | string;
   };
 }
 
@@ -51,6 +52,14 @@ export function buildCdkProjectCommand(
 
   if (args.output)
     convertedArgs.push('--output', relativeToRoot(projectRoot, args.output));
+
+  if (args.context) {
+    const contextList = Array.isArray(args.context)
+      ? args.context
+      : [args.context];
+    const context = contextList.flatMap((c) => ['--context', c]);
+    convertedArgs.push(...context);
+  }
 
   if (args.hotswapFallback) convertedArgs.push('--hotswap-fallback');
 
