@@ -3,4 +3,5 @@ export interface DeployExecutorSchema {
   app?: string;
   hotswapFallback?: boolean;
   noRollback?: boolean;
+  context?: string[] | string;
 }

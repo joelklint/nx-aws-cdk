@@ -3,11 +3,13 @@
 Empowers your [Nx](https://nx.dev) workspace with [AWS CDK](https://aws.amazon.com/cdk/) capabilities ⚡
 
 What does it do?
+
 - Generate AWS CDK projects
 - Deploy AWS CDK projects
 - Gives you total control of CLI arguments through `project.json`
 
 ## Table of contents
+
 - [Install](#install)
   - [Dependencies](#dependencies)
 - [Usage](#usage)
@@ -24,7 +26,6 @@ What does it do?
 - [Contributing](#contributing)
 - [License](#license)
 
-
 ## Install
 
 ```sh
@@ -39,6 +40,7 @@ pnpm install --save-dev @nx-iac/aws-cdk
 ```
 
 ### Dependencies
+
 The machine utilising this plugin must be authenticated with AWS. Read more about how authentication works [here](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html#getting_started_auth)
 
 ## Usage
@@ -52,19 +54,22 @@ nx g @nx-iac/aws-cdk:bootstrap
 ```
 
 ### Generate AWS CDK project
+
 #### New application
+
 Create a new application in your Nx workspace, with AWS CDK capabilities
 
 ```sh
 nx g @nx-iac/aws-cdk:app
 ```
+
 #### Preexisting application
+
 Give AWS CDK capabilities to a preexisting project in your Nx workspace
 
 ```sh
 nx g @nx-iac/aws-cdk:appify
 ```
-
 
 ### Package application
 
@@ -74,6 +79,10 @@ Create deployment artifacts for your AWS CDK project
 
 ```sh
 nx package <app-name>
+```
+
+```sh
+nx package <app-name> --context key1=value1 --contextSome key2=value2
 ```
 
 ### Deploy application
